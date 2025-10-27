@@ -1,0 +1,24 @@
+{
+  "name": "student-record-system",
+  "version": "1.0.0",
+  "description": "student record system api crud",
+  "license": "ISC",
+  "author": "javaaadde",
+  "type": "module",
+  "main": "dist/server.ts",
+  "scripts": {
+    "dev": "npx ts-node src/server.ts"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.4",
+    "@types/node": "^24.9.1",
+    "typescript": "^5.9.3"
+  }
+}
