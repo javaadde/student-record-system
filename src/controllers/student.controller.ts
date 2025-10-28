@@ -3,7 +3,7 @@ import { Request,Response } from "express";
 
 class StudentController {
   
-    static async insertOneStudent(req: Request, res: Response) {
+    static async insertOneStudent(req: Request, res: Response): Promise<void> {
     try {
       const student = await Students.create(req.body);
       res.status(200).json({ message: "student_is_created", createdStudent: student });
@@ -14,7 +14,7 @@ class StudentController {
   }
 
 
-   static async getAllStudents(req: Request, res: Response) {
+   static async getAllStudents(req: Request, res: Response):Promise<void> {
     try {
       const data = await Students.find();
       res.json(data);
@@ -23,7 +23,8 @@ class StudentController {
     }
   }
 
-   static async getSpecificStudent(req: Request, res: Response) {
+
+   static async getSpecificStudent(req: Request, res: Response):Promise<void> {
     try {
       const id = req.params.id;
       const data = await Students.findById(id);
@@ -33,7 +34,8 @@ class StudentController {
     }
   }
 
-  static async updateAnStudent(req:Request, res: Response) {
+  
+  static async updateAnStudent(req:Request, res: Response):Promise<void> {
     try {
       
         const id = req.params.id;
