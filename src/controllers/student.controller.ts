@@ -1,18 +1,20 @@
 import { Students } from "../models/student.model.ts";
-// import { Request } from "express";
+import { Request,Response } from "express";
 
 class StudentController {
-
-   async insertOneStudent(req: Request, res: Response) {
+  
+    static async insertOneStudent(req: Request, res: Response) {
     try {
       const student = await Students.create(req.body);
-      res.json({ message: "student is created", cretedStudent: student });
+      res.status(200).json({ message: "student_is_created", createdStudent: student });
     } catch (error) {
       console.error(error);
+      res.status(500).json({ message: "Error creating student" });
     }
   }
 
-  async getAllStudents(req: Request, res: Response) {
+
+   static async getAllStudents(req: Request, res: Response) {
     try {
       const data = await Students.find();
       res.json(data);
@@ -21,7 +23,7 @@ class StudentController {
     }
   }
 
-  async getSpecificStudent(req: Request, res: Response) {
+   static async getSpecificStudent(req: Request, res: Response) {
     try {
       const id = req.params.id;
       const data = await Students.findById(id);
@@ -31,7 +33,7 @@ class StudentController {
     }
   }
 
-  async updateAnStudent(req:Request, res: Response) {
+  static async updateAnStudent(req:Request, res: Response) {
     try {
       
         const id = req.params.id;
